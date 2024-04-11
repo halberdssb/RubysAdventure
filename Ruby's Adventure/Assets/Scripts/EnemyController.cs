@@ -87,5 +87,17 @@ public class EnemyController : MonoBehaviour
         animator.SetTrigger("Fixed");
 
         smokeEffect.Stop();
+
+        UIManager.main.robotsFixed++;
+
+        if (UIManager.main.robotsFixed == UIManager.main.totalRobots)
+        {
+            UIManager.main.WinGame();
+        }
+    }
+
+    public void Reset()
+    {
+        
     }
 }
