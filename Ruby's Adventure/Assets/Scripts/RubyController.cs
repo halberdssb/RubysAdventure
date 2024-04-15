@@ -13,6 +13,9 @@ public class RubyController : MonoBehaviour
     public AudioClip throwSound;
     public AudioClip hitSound;
 
+    public ParticleSystem healthParticles;
+    public ParticleSystem hurtParticles;
+
     public int health { get { return currentHealth; } }
     int currentHealth;
 
@@ -116,6 +119,7 @@ public class RubyController : MonoBehaviour
             invincibleTimer = timeInvincible;
 
             PlaySound(hitSound);
+            hurtParticles.Play();
         }
 
         currentHealth = Mathf.Clamp(currentHealth + amount, 0, maxHealth);

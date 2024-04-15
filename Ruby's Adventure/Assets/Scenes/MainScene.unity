@@ -10611,6 +10611,17 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 3980294521538719930, guid: e4f5c7b590ad82641b249f443366a3af, type: 3}
   m_PrefabInstance: {fileID: 3980294521347964028}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &690479234 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 3980294521538719931, guid: e4f5c7b590ad82641b249f443366a3af, type: 3}
+  m_PrefabInstance: {fileID: 3980294521347964028}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: aadd6bf07bd0dbc44bd42bdc83742c55, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &716333266
 GameObject:
   m_ObjectHideFlags: 0
@@ -11236,10 +11247,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ecb22423896a1fb46a84973f9714d07d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  winUI: {fileID: 0}
-  restartUI: {fileID: 0}
-  robotCounter: {fileID: 0}
-  player: {fileID: 0}
+  winUI: {fileID: 36729877}
+  restartUI: {fileID: 1796960740}
+  robotCounter: {fileID: 1591049696}
+  player: {fileID: 690479234}
   robotsFixed: 0
   totalRobots: 0
 --- !u!4 &1303161379
@@ -11450,7 +11461,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 3.4849708, y: 0}
+  m_AnchoredPosition: {x: 3.4849854, y: 0}
   m_SizeDelta: {x: -6.9700575, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1591049696
@@ -11584,10 +11595,10 @@ RectTransform:
   m_Father: {fileID: 902706849}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.5, y: 0.5}
-  m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 367, y: 234}
-  m_SizeDelta: {x: 197.1, y: 34.6}
+  m_AnchorMin: {x: 1, y: 1}
+  m_AnchorMax: {x: 1, y: 1}
+  m_AnchoredPosition: {x: -117, y: -39}
+  m_SizeDelta: {x: 197.09998, y: 34.600006}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1637858513
 MonoBehaviour:

@@ -18,6 +18,7 @@ public class HealthCollectible : MonoBehaviour
                 gameObject.SetActive(false);
 
                 controller.PlaySound(collectedClip);
+                controller.healthParticles.Play();
             }
         }
 
