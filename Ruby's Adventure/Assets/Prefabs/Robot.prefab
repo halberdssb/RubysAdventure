@@ -153,6 +153,7 @@ MonoBehaviour:
   vertical: 0
   changeTime: 3
   smokeEffect: {fileID: 808974831236202361}
+  robotFixSound: {fileID: 8300000, guid: e7fa1971a86d60945bb64585c0ac14d5, type: 3}
 --- !u!95 &2596337218672899850
 Animator:
   serializedVersion: 5

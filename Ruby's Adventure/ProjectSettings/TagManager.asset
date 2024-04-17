@@ -6,6 +6,7 @@ TagManager:
   tags:
   - Robot
   - Collectible
+  - Ruby
   layers:
   - Default
   - TransparentFX

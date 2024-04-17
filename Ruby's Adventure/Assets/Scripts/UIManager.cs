@@ -11,6 +11,7 @@ public class UIManager : MonoBehaviour
     public GameObject winUI;
     public GameObject restartUI;
     public TextMeshProUGUI robotCounter;
+    public Animator counterAnimator;
 
     public RubyController player;
 

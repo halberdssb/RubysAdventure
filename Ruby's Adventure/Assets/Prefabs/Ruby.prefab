@@ -17,7 +17,7 @@ GameObject:
   - component: {fileID: 2093940904715895035}
   m_Layer: 8
   m_Name: Ruby
-  m_TagString: Untagged
+  m_TagString: Ruby
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -113,6 +113,7 @@ MonoBehaviour:
   timeInvincible: 2
   startPos: {x: 0, y: 0, z: 0}
   allowInput: 0
+  hasMultishot: 0
 --- !u!50 &7445356147363079041
 Rigidbody2D:
   serializedVersion: 4

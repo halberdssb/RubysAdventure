@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using UnityEditor.Animations;
 using UnityEngine;
 
 public class EnemyController : MonoBehaviour
@@ -17,12 +18,17 @@ public class EnemyController : MonoBehaviour
 
     Animator animator;
 
+    // new robot fixed sound effect - added by Jeff Stevenson
+    public AudioClip robotFixSound;
+    AudioSource playerAudioSource;
+
     // Start is called before the first frame update
     void Start()
     {
         rigidbody2D = GetComponent<Rigidbody2D>();
         timer = changeTime;
         animator = GetComponent<Animator>();
+        playerAudioSource = GameObject.FindGameObjectWithTag("Ruby").GetComponent<AudioSource>();
     }
 
     void Update()
@@ -88,7 +94,12 @@ public class EnemyController : MonoBehaviour
 
         smokeEffect.Stop();
 
+        // play new robot fix sound
+        playerAudioSource.PlayOneShot(robotFixSound);
+
         UIManager.main.robotsFixed++;
+        // added line below to add robot counter animation - made by Jeff Stevenson
+        UIManager.main.counterAnimator.SetTrigger("RobotFixed");
 
         if (UIManager.main.robotsFixed == UIManager.main.totalRobots)
         {

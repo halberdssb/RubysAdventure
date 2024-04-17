@@ -35,6 +35,9 @@ public class RubyController : MonoBehaviour
     public Vector3 startPos;
     public bool allowInput;
 
+    // bool for collecting multishot pick up added - Jeff Stevenson
+    public bool hasMultishot;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -47,6 +50,8 @@ public class RubyController : MonoBehaviour
 
         startPos = transform.position;
         allowInput = true;
+
+        hasMultishot = false;
     }
 
     // Update is called once per frame
@@ -134,10 +139,44 @@ public class RubyController : MonoBehaviour
 
     void Launch()
     {
-        GameObject projectileObject = Instantiate(projectilePrefab, rigidbody2d.position + Vector2.up * 0.5f, Quaternion.identity);
+        // changes to launch function to add multishot functionality - Jeff Stevenson
+        // normal launch
+        if (!hasMultishot)
+        {
+            GameObject projectileObject = Instantiate(projectilePrefab, rigidbody2d.position + Vector2.up * 0.5f, Quaternion.identity);
 
-        Projectile projectile = projectileObject.GetComponent<Projectile>();
-        projectile.Launch(lookDirection, 300);
+            Projectile projectile = projectileObject.GetComponent<Projectile>();
+            projectile.Launch(lookDirection, 300);
+        }
+        // START NEW MULTISHOT CODE - made by Jeff Stevenson
+        else
+        {
+            // instantiate three projectiles
+            GameObject projectile1Object = Instantiate(projectilePrefab, rigidbody2d.position + Vector2.up * 0.5f, Quaternion.identity);
+            GameObject projectile2Object = Instantiate(projectilePrefab, rigidbody2d.position + Vector2.up * 0.5f, Quaternion.identity);
+            GameObject projectile3Object = Instantiate(projectilePrefab, rigidbody2d.position + Vector2.up * 0.5f, Quaternion.identity);
+
+            // get projectile components for each object
+            Projectile projectile1 = projectile1Object.GetComponent<Projectile>();
+            Projectile projectile2 = projectile2Object.GetComponent<Projectile>();
+            Projectile projectile3 = projectile3Object.GetComponent<Projectile>();
+
+            // calculate look angle from vector2 lookdirection and convert to upper and lower angles for multishot
+            float lookAngle = Mathf.Atan2(lookDirection.x, lookDirection.y) * Mathf.Rad2Deg * -1;
+            lookAngle += 90;
+            Vector2 upperAngle = new Vector2(Mathf.Cos((lookAngle + 10) * (Mathf.PI / 180)), Mathf.Sin((lookAngle + 10) * (Mathf.PI / 180)));
+            Vector2 lowerAngle = new Vector2(Mathf.Cos((lookAngle - 10) * (Mathf.PI / 180)), Mathf.Sin((lookAngle - 10) * (Mathf.PI / 180)));
+
+            Debug.Log("Look angle: " + lookAngle);
+            Debug.Log("Upper angle: " + upperAngle);
+            Debug.Log("Lower angle: " + lowerAngle);
+
+            projectile1.Launch(lookDirection, 300);
+            projectile2.Launch(upperAngle, 300);
+            projectile3.Launch(lowerAngle, 300);
+        }
+
+        // END NEW MULTISHOT CODE - made by Jeff Stevenson
 
         animator.SetTrigger("Launch");
 
