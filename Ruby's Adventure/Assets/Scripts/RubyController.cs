@@ -5,7 +5,6 @@ using UnityEngine;
 public class RubyController : MonoBehaviour
 {
     public float speed = 3.0f;
-
     public int maxHealth = 5;
 
     public GameObject projectilePrefab;
@@ -37,6 +36,9 @@ public class RubyController : MonoBehaviour
 
     // bool for collecting multishot pick up added - Jeff Stevenson
     public bool hasMultishot;
+
+    // bool for Sludge Spill added- Garrett Oliver
+    private bool _inSludgeSpill;
 
     // Start is called before the first frame update
     void Start()
@@ -187,4 +189,27 @@ public class RubyController : MonoBehaviour
     {
         audioSource.PlayOneShot(clip);
     }
+
+    private void OnTriggerEnter2D(Collider2D other)
+    {
+        if(other.CompareTag ("SludgeSpill"))
+        {
+            _inSludgeSpill=true;
+            speed=speed /2;
+
+        }
+    }
+
+    private void OnTriggerExit2D(Collider2D other)
+    {
+         if(other.CompareTag ("SludgeSpill"))
+         {
+            _inSludgeSpill=false;
+            speed=speed *2;
+
+         }
+    }
+
+
 }
+
