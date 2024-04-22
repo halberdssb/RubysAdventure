@@ -11,6 +11,8 @@ public class RubyController : MonoBehaviour
 
     public AudioClip throwSound;
     public AudioClip hitSound;
+    public AudioClip boxHit;
+    public AudioClip sludgeWalk;
 
     public ParticleSystem healthParticles;
     public ParticleSystem hurtParticles;
@@ -190,13 +192,22 @@ public class RubyController : MonoBehaviour
         audioSource.PlayOneShot(clip);
     }
 
+    private void OnCollisionEnter2D(Collision2D collision)
+    {
+        if (collision.gameObject.CompareTag("Box"))
+        {
+            audioSource.PlayOneShot(boxHit);
+        }
+    }
+
+    // NEW OIL SPILL CODE - made by Garrett Oliver
     private void OnTriggerEnter2D(Collider2D other)
     {
         if(other.CompareTag ("SludgeSpill"))
         {
             _inSludgeSpill=true;
             speed=speed /2;
-
+            audioSource.PlayOneShot(sludgeWalk);
         }
     }
 
@@ -209,6 +220,7 @@ public class RubyController : MonoBehaviour
 
          }
     }
+    // END NEW OIL SPILL CODE
 
 
 }

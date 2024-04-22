@@ -108,6 +108,8 @@ MonoBehaviour:
   projectilePrefab: {fileID: 6612560056754163434, guid: 87aa239a056d39f4ab3dbb9046fcb7e8, type: 3}
   throwSound: {fileID: 8300000, guid: b2edfd40873655249ba0e01a5cf705be, type: 3}
   hitSound: {fileID: 8300000, guid: 9b1bb1f450b7d444fa4a8019d13519a7, type: 3}
+  boxHit: {fileID: 8300000, guid: ed5c0ae259f3d4294be9eb5bb655b928, type: 3}
+  sludgeWalk: {fileID: 8300000, guid: a20c77ecd5de9eb4a98731b45ad84c3e, type: 3}
   healthParticles: {fileID: 6770795102793353759}
   hurtParticles: {fileID: 902189762902906565}
   timeInvincible: 2
